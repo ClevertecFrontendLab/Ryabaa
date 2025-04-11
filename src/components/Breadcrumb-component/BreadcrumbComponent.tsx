@@ -7,8 +7,6 @@ import { useCatalogParams } from '~/hooks/useCatalogParams';
 const Breadcrumbs = () => {
     const { category, subcategory } = useCatalogParams();
 
-    console.log(category, subcategory);
-
     return (
         <Breadcrumb
             separator={<ChevronRightIcon color='gray.400' />}

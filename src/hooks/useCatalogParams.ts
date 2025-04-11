@@ -7,8 +7,6 @@ export function useCatalogParams() {
         (state: ApplicationState) => state.routeParams,
     );
 
-    console.log(categorySlug, subcategorySlug);
-
     const category = categories.find((cat) => cat.slug === categorySlug) || null;
 
     const subcategory =
