@@ -11,6 +11,8 @@
     -webkit-tap-highlight-color: transparent;
     outline: none;
     border: 0;
+    font-family: var(--font-family);
+    transition: all 0.3s ease;
 }
 
 button,
@@ -27,4 +29,13 @@ a:hover {
 :root {
     --font-family: 'Inter', sans-serif;
     --second-family: 'Roboto', sans-serif;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #00000029;
+    border-radius: 8px;
 }

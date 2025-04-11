@@ -3,9 +3,12 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { apiSlice } from '~/query/create-api';
 
 import appReducer, { appSlice } from './app-slice';
+import routeParamsReducer, { routeParamsSlice } from './route-params-slice';
+
 const isProduction = false;
 const rootReducer = combineReducers({
     [appSlice.name]: appReducer,
+    [routeParamsSlice.name]: routeParamsReducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
 });
 

@@ -10,7 +10,7 @@ const theme = extendTheme({
         '2xl': '2000px',
     },
     colors: {
-        accent: { 100: '#FFFFD3', 200: '#2DB100' },
+        accent: { 100: '#FFFFD3', 200: '#2DB100', 300: '#eaffc7', 400: '#c4ff61' },
     },
 });
 

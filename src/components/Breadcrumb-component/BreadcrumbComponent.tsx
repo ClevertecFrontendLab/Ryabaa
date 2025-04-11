@@ -1,34 +1,46 @@
+import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router';
 
-const BreadcrumbComponent = () => {
-    const location = useLocation();
+import { useCatalogParams } from '~/hooks/useCatalogParams';
 
-    const pathnames = location.pathname.split('/').filter((x) => x);
+const Breadcrumbs = () => {
+    const { category, subcategory } = useCatalogParams();
+
+    console.log(category, subcategory);
+
     return (
-        <Breadcrumb separator='>' fontSize='sm' ml='128px' flex='1'>
+        <Breadcrumb
+            separator={<ChevronRightIcon color='gray.400' />}
+            fontSize='sm'
+            color='gray.600'
+            mb={4}
+        >
             <BreadcrumbItem>
                 <BreadcrumbLink as={RouterLink} to='/'>
                     Главная
                 </BreadcrumbLink>
             </BreadcrumbItem>
 
-            {pathnames.map((path, index) => {
-                const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
-                return (
-                    <BreadcrumbItem key={routeTo}>
-                        <BreadcrumbLink
-                            as={RouterLink}
-                            to={routeTo}
-                            isCurrentPage={index === pathnames.length - 1}
-                        >
-                            {path.replace(/-/g, ' ')}
+            {category && (
+                <BreadcrumbItem isCurrentPage={!subcategory}>
+                    {subcategory ? (
+                        <BreadcrumbLink as={RouterLink} to={`/${category.slug}`}>
+                            {category.label}
                         </BreadcrumbLink>
-                    </BreadcrumbItem>
-                );
-            })}
+                    ) : (
+                        <BreadcrumbLink isCurrentPage>{category.label}</BreadcrumbLink>
+                    )}
+                </BreadcrumbItem>
+            )}
+
+            {subcategory && (
+                <BreadcrumbItem isCurrentPage>
+                    <BreadcrumbLink isCurrentPage>{subcategory.label}</BreadcrumbLink>
+                </BreadcrumbItem>
+            )}
         </Breadcrumb>
     );
 };
 
-export default BreadcrumbComponent;
+export default Breadcrumbs;
