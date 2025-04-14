@@ -17,7 +17,8 @@ function CategoryAccordion() {
 
     return (
         <Accordion
-            px='10px'
+            pl='10px'
+            pr='2px'
             w='100%'
             allowMultiple
             onChange={handleChange}

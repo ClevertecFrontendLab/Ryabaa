@@ -7,7 +7,7 @@ import { Category } from '~/types/categories';
 function CategoryButton({ category, isExpanded }: { category: Category; isExpanded: boolean }) {
     const navigate = useNavigate();
 
-    const handleClick = () => navigate(`/${category.slug}`);
+    const handleClick = () => navigate(`/veganskaya-kukhnya/vtorye-blyuda`);
 
     return (
         <AccordionButton
@@ -15,10 +15,12 @@ function CategoryButton({ category, isExpanded }: { category: Category; isExpand
             bg={isExpanded ? 'accent.300' : 'unset'}
             _hover={{ background: 'accent.100' }}
             onClick={handleClick}
+            py={0}
+            px='5px'
         >
             <Box as='span' flex='1' textAlign='left' display='flex' alignItems='center'>
                 <Img w='24px' src={category.img} mr='12px' />
-                <Text fontWeight={isExpanded ? '700' : '500'} color='#000'>
+                <Text fontWeight={isExpanded ? '700' : '500'} fontSize='lg' color='#000'>
                     {category.label}
                 </Text>
             </Box>

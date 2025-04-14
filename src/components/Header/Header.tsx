@@ -23,11 +23,13 @@ function Header() {
             bg='accent.100'
             data-test-id='header'
         >
-            <Img src={LogoIcon} width='120px' />
+            <Img src={LogoIcon} width='135px' />
 
-            <Show above='lg'>
-                <BreadcrumbComponent />
-            </Show>
+            <Flex position='absolute' left='260px' h='22px'>
+                <Show above='lg'>
+                    <BreadcrumbComponent />
+                </Show>
+            </Flex>
 
             <Show above='lg'>
                 <Flex justify='center' columnGap='12px'>

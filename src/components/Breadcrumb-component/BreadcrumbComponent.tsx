@@ -8,33 +8,35 @@ const Breadcrumbs = () => {
     const { category, subcategory } = useCatalogParams();
 
     return (
-        <Breadcrumb
-            separator={<ChevronRightIcon color='gray.400' />}
-            fontSize='sm'
-            color='gray.600'
-            mb={4}
-        >
-            <BreadcrumbItem>
-                <BreadcrumbLink as={RouterLink} to='/'>
+        <Breadcrumb separator={<ChevronRightIcon color='#000' />} mb={4}>
+            <BreadcrumbItem color={category ? '#000000a3' : '#000'}>
+                <BreadcrumbLink fontSize='lg' as={RouterLink} to='/'>
                     Главная
                 </BreadcrumbLink>
             </BreadcrumbItem>
 
             {category && (
-                <BreadcrumbItem isCurrentPage={!subcategory}>
+                <BreadcrumbItem
+                    color={subcategory ? '#000000a3' : '#000'}
+                    isCurrentPage={!subcategory}
+                >
                     {subcategory ? (
-                        <BreadcrumbLink as={RouterLink} to={`/${category.slug}`}>
+                        <BreadcrumbLink fontSize='lg' as={RouterLink} to={`/${category.slug}`}>
                             {category.label}
                         </BreadcrumbLink>
                     ) : (
-                        <BreadcrumbLink isCurrentPage>{category.label}</BreadcrumbLink>
+                        <BreadcrumbLink fontSize='lg' isCurrentPage>
+                            {category.label}
+                        </BreadcrumbLink>
                     )}
                 </BreadcrumbItem>
             )}
 
             {subcategory && (
-                <BreadcrumbItem isCurrentPage>
-                    <BreadcrumbLink isCurrentPage>{subcategory.label}</BreadcrumbLink>
+                <BreadcrumbItem color='#000' isCurrentPage>
+                    <BreadcrumbLink fontSize='lg' isCurrentPage>
+                        {subcategory.label}
+                    </BreadcrumbLink>
                 </BreadcrumbItem>
             )}
         </Breadcrumb>

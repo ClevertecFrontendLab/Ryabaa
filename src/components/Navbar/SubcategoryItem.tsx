@@ -5,7 +5,7 @@ import { Subcategory } from '~/types/categories';
 
 function SubcategoryItem({
     subcategory,
-    categorySlug,
+    //categorySlug,
     isActive,
 }: {
     subcategory: Subcategory;
@@ -14,7 +14,8 @@ function SubcategoryItem({
 }) {
     const navigate = useNavigate();
 
-    const handleClick = () => navigate(`/${categorySlug}/${subcategory.slug}`);
+    const handleClick = () =>
+        navigate(`/veganskaya-kukhnya/vtorye-blyuda`); /*в будущем будут слагиы */
 
     return (
         <AccordionItem border='none'>
@@ -25,7 +26,7 @@ function SubcategoryItem({
                 onClick={handleClick}
             >
                 <Box w={isActive ? '8px' : '1px'} h='24px' mr='11px' bg='accent.400' />
-                <Text fontWeight={isActive ? '700' : '500'} color='#000'>
+                <Text fontWeight={isActive ? '700' : '500'} fontSize='lg' color='#000'>
                     {subcategory.label}
                 </Text>
             </AccordionButton>
